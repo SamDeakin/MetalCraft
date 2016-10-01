@@ -12,6 +12,8 @@
 #import <simd/simd.h>
 #import <ModelIO/ModelIO.h>
 
+#import <imgui/imgui.h>
+
 // The max number of command buffers in flight
 static const NSUInteger kMaxInflightBuffers = 3;
 
@@ -139,8 +141,6 @@ static const size_t kMaxBytesPerFrame = 1024*1024;
 - (void)_render
 {
     dispatch_semaphore_wait(_inflight_semaphore, DISPATCH_TIME_FOREVER);
-    
-    [self _update];
 
     // Create a new command buffer for each renderpass to the current drawable
     id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
@@ -212,6 +212,23 @@ static const size_t kMaxBytesPerFrame = 1024*1024;
     _rotation += 0.01f;
 }
 
+- (void)_updateGui
+{
+    static bool firstRun(true);
+    if (firstRun) {
+        ImGui::SetNextWindowPos(ImVec2(50, 50));
+        firstRun = false;
+    }
+
+    static bool showDebugWindow(true);
+    ImGuiWindowFlags windowFlags(ImGuiWindowFlags_AlwaysAutoResize);
+    float opacity(0.5f);
+
+    ImGui::Begin("Properties", &showDebugWindow, ImVec2(100,100), opacity,
+                 windowFlags);
+    ImGui::End();
+}
+
 // Called whenever view changes orientation or layout is changed
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size
 {
@@ -223,7 +240,13 @@ static const size_t kMaxBytesPerFrame = 1024*1024;
 - (void)drawInMTKView:(nonnull MTKView *)view
 {
     @autoreleasepool {
+        ImGui::NewFrame();
+
+        [self _update];
+        [self _updateGui];
         [self _render];
+
+        ImGui::Render();
     }
 }
 

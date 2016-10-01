@@ -1,0 +1,8 @@
+# Compilation files
+*.o
+*.d
+MetalCraft/lib/*
+
+# OSX Files
+*.DS_STORE
+*.xcuserdatad
