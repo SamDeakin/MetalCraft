@@ -58,6 +58,7 @@ static const size_t kMaxBytesPerFrame = 1024*1024;
     if(_device)
     {
         [self _setupView];
+        [self _setupImGui];
         [self _loadAssets];
         [self _reshape];
     }
@@ -89,6 +90,11 @@ static const size_t kMaxBytesPerFrame = 1024*1024;
     
     // Load all the shader files with a metal file extension in the project
     _defaultLibrary = [_device newDefaultLibrary];
+}
+
+- (void)_setupImGui
+{
+    ImGuiIO& io = ImGui::GetIO();
 }
 
 - (void)_loadAssets

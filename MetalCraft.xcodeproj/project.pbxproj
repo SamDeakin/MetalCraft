@@ -17,9 +17,8 @@
 		754428201D9F5271005C1C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7544281F1D9F5271005C1C69 /* Assets.xcassets */; };
 		754428231D9F5271005C1C69 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 754428211D9F5271005C1C69 /* MainMenu.xib */; };
 		754428531D9F7E28005C1C69 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 754428511D9F7E28005C1C69 /* LICENSE */; };
-		754428541D9F7E28005C1C69 /* shared in Resources */ = {isa = PBXBuildFile; fileRef = 754428521D9F7E28005C1C69 /* shared */; };
-		754428561D9F7E86005C1C69 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 754428551D9F7E86005C1C69 /* Makefile */; };
 		754428581D9F9424005C1C69 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 754428571D9F9424005C1C69 /* .gitignore */; };
+		7544285C1DA0CF6E005C1C69 /* shared in Resources */ = {isa = PBXBuildFile; fileRef = 7544285B1DA0CF6E005C1C69 /* shared */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,9 +37,9 @@
 		754428221D9F5271005C1C69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		754428241D9F5271005C1C69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		754428511D9F7E28005C1C69 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		754428521D9F7E28005C1C69 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = MetalCraft/shared; sourceTree = "<group>"; };
-		754428551D9F7E86005C1C69 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; usesTabs = 1; };
 		754428571D9F9424005C1C69 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		754428591D9F978A005C1C69 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../Makefile; sourceTree = "<group>"; };
+		7544285B1DA0CF6E005C1C69 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shared; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +59,7 @@
 		754428001D9F5271005C1C69 = {
 			isa = PBXGroup;
 			children = (
-				754428521D9F7E28005C1C69 /* shared */,
+				7544285B1DA0CF6E005C1C69 /* shared */,
 				754428121D9F5271005C1C69 /* MetalCraft */,
 				7544280B1D9F5271005C1C69 /* Frameworks */,
 				7544280A1D9F5271005C1C69 /* Products */,
@@ -105,10 +104,10 @@
 		754428161D9F5271005C1C69 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				754428591D9F978A005C1C69 /* Makefile */,
 				754428571D9F9424005C1C69 /* .gitignore */,
 				754428511D9F7E28005C1C69 /* LICENSE */,
 				754428171D9F5271005C1C69 /* main.m */,
-				754428551D9F7E86005C1C69 /* Makefile */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -173,9 +172,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7544285C1DA0CF6E005C1C69 /* shared in Resources */,
 				754428581D9F9424005C1C69 /* .gitignore in Resources */,
 				754428531D9F7E28005C1C69 /* LICENSE in Resources */,
-				754428541D9F7E28005C1C69 /* shared in Resources */,
 				754428201D9F5271005C1C69 /* Assets.xcassets in Resources */,
 				754428231D9F5271005C1C69 /* MainMenu.xib in Resources */,
 			);
@@ -204,7 +203,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				754428561D9F7E86005C1C69 /* Makefile in Sources */,
 				7544281D1D9F5271005C1C69 /* Shaders.metal in Sources */,
 				754428181D9F5271005C1C69 /* main.m in Sources */,
 				7544281B1D9F5271005C1C69 /* GameViewController.mm in Sources */,
@@ -327,6 +325,10 @@
 				INFOPLIST_FILE = MetalCraft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = lib;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-limgui",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = NAH.MetalCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = shared;
@@ -347,6 +349,10 @@
 				INFOPLIST_FILE = MetalCraft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = lib;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-limgui",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = NAH.MetalCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = shared;
