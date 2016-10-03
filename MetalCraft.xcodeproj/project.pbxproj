@@ -19,6 +19,7 @@
 		754428531D9F7E28005C1C69 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 754428511D9F7E28005C1C69 /* LICENSE */; };
 		754428581D9F9424005C1C69 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 754428571D9F9424005C1C69 /* .gitignore */; };
 		7544285C1DA0CF6E005C1C69 /* shared in Resources */ = {isa = PBXBuildFile; fileRef = 7544285B1DA0CF6E005C1C69 /* shared */; };
+		7544285E1DA0DA6B005C1C69 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7544285D1DA0DA6B005C1C69 /* MainWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		754428571D9F9424005C1C69 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		754428591D9F978A005C1C69 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../Makefile; sourceTree = "<group>"; };
 		7544285B1DA0CF6E005C1C69 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shared; sourceTree = "<group>"; };
+		7544285D1DA0DA6B005C1C69 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				7544281F1D9F5271005C1C69 /* Assets.xcassets */,
 				754428211D9F5271005C1C69 /* MainMenu.xib */,
 				754428241D9F5271005C1C69 /* Info.plist */,
+				7544285D1DA0DA6B005C1C69 /* MainWindow.swift */,
 				754428161D9F5271005C1C69 /* Supporting Files */,
 			);
 			path = MetalCraft;
@@ -145,6 +148,7 @@
 					754428081D9F5271005C1C69 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 98SA93Z838;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -205,6 +209,7 @@
 			files = (
 				7544281D1D9F5271005C1C69 /* Shaders.metal in Sources */,
 				754428181D9F5271005C1C69 /* main.m in Sources */,
+				7544285E1DA0DA6B005C1C69 /* MainWindow.swift in Sources */,
 				7544281B1D9F5271005C1C69 /* GameViewController.mm in Sources */,
 				754428151D9F5271005C1C69 /* AppDelegate.m in Sources */,
 			);
@@ -316,6 +321,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 98SA93Z838;
 				HEADER_SEARCH_PATHS = (
@@ -331,6 +337,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = NAH.MetalCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = shared;
 			};
 			name = Debug;
@@ -340,6 +348,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 98SA93Z838;
 				HEADER_SEARCH_PATHS = (
@@ -355,6 +364,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = NAH.MetalCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = shared;
 			};
 			name = Release;
